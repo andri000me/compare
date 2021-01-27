@@ -1,0 +1,5 @@
+26/01/2021:
+view rek koran bulanan total: 
+-bri:
+    -salah query, query awal (SELECT tanggal_hpt,description1,credit FROM bri WHERE description1 LIKE '%0121%')
+    -ganti jadi, SELECT SUM(credit) FROM bri WHERE MONTH(tanggal_hpt)='01'

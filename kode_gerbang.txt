@@ -1,0 +1,42 @@
+kode gerbang
+
+#bank mandiri:
+kalijati: 4909
+subang: 4908
+cikedung: 4907
+kertajati: 4906
+sumberjaya: 4905
+palimanan: 4904
+cikampek: 1420
+cikampek utama: 1437
+
+#bank bni:
+kalijati: 500105
+subang: 500110
+cikedung: 500115
+kertajati: 500120 
+sumberjaya: 500125
+palimanan: 500130,500100
+cikampek: 301420
+cikampek utama: 301426
+
+#bank bca:
+kalijati: 885023100196
+subang: 885023100197
+cikedung: 885023100198
+kertajati: 885023100199 
+sumberjaya: 885023100200
+palimanan c1: 885023100201
+palimanan c2: 885000574752 
+cikampek: 885000500134
+cikampek utama: 885000803566
+
+#bank bri:
+kalijati: 1984600000
+subang: 1984600001
+cikedung: 1984600002
+kertajati:  1984600003
+sumberjaya: 1984600004
+palimanan c1: 1984600005
+cikampek: 1929570116
+cikampek utama: 1929570262

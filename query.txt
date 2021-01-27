@@ -1,0 +1,10 @@
+#bca sum credit berdasarkan per tanggal harian
+-- select tanggal_hpt, sum(credit) from bca where keterangan not like '%JEMPUTAN%' and keterangan not like '%RTGS%' and keterangan not like '%LAINNYA%'
+-- group by tanggal_hpt
+
+-- bca sum credit berdsarkan tanggal 1 hari
+-- select tanggal_hpt, sum(credit) from bca where keterangan not like '%JEMPUTAN%' and keterangan not like '%RTGS%' and keterangan not like '%LAINNYA%'
+-- and tanggal_hpt = '2021-01-01' group by tanggal_hpt
+
+# bca sum credit berdasarkan rentang tanggal dan kode gerbang
+-- select tanggal_hpt, sum(credit) from bca where tanggal_hpt between '2021-01-01' and '2021-01-18' and keterangan not like '%JEMPUTAN%' and keterangan not like '%RTGS%' and keterangan not like '%LAINNYA%' and kode_gerbang = ' 885023100196' group by tanggal_hpt
