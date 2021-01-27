@@ -24,7 +24,9 @@
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Silahkan pilih "Logout" di bawah ini jika Anda ingin keluar.</div>
+          <div class="modal-body">Silahkan pilih "Logout" di bawah ini jika Anda ingin keluar.
+            <br> atau pilih "Cancel" untuk tetap dihalaman ini.
+          </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             <a class="btn btn-primary" href="logout.php">Logout</a>
