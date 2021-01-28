@@ -18,7 +18,7 @@ require "include/header.php";
           <div class="card mb-3">
               
             <div class="card-body">
-            <label>Filter Berdasarkan Bulan</label>
+            <label>Filter Berdasarkan Range Tanggal Awal sampai Tanggal Akhir 1 Bulan</label>
                 <form method="get" action="<?php echo $_SERVER['PHP_SELF'] ?>"> 
                     <!-- <div class="input-group" style="width: 25%">
                         <input type="month" name="bulan" id="" class="form-control" value="<?php if (isset($_GET['bulan'])) echo $_GET['bulan'];?>">

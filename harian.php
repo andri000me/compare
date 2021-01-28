@@ -235,29 +235,25 @@ include "koneksi.php";
 
                                     $query = mysqli_query($koneksi, "SELECT tanggal_hpt,SUM(credit) as credit FROM bca WHERE tanggal_hpt BETWEEN '$dt_awal' AND '$dt_input_2' AND keterangan NOT LIKE '%JEMPUTAN%' AND keterangan NOT LIKE '%RTGS%' AND keterangan NOT LIKE '%LAINNYA%' AND kode_gerbang = ' 885023100196'
                                     GROUP BY tanggal_hpt");
-                                // // selain itu tampilkan nilai 0
-                                // else {
-                                //     echo "0";
-                                // }
-                                $cr_kalijati_bca2 = 0;
-                                while ($result = mysqli_fetch_assoc($query)) {
-                                    $cr_kalijati_bca = $result['credit'];
-                                    $cr_kalijati_bca2 += $cr_kalijati_bca;
-                                    // echo number_format($cr,0,',','.');
-                                ?>
-                                <tr>
-                                    <td><?php echo $result['tanggal_hpt']; ?></td>
-                                    <td><?php echo number_format($cr_kalijati_bca,0,',','.'); ?></td>
-                                </tr>
-                                <?php
+                                    $cr_kalijati_bca2 = 0;
+                                    while ($result = mysqli_fetch_assoc($query)) {
+                                        $cr_kalijati_bca = $result['credit'];
+                                        $cr_kalijati_bca2 += $cr_kalijati_bca;
+                                        // echo number_format($cr,0,',','.');
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $result['tanggal_hpt']; ?></td>
+                                        <td><?php echo number_format($cr_kalijati_bca,0,',','.'); ?></td>
+                                    </tr>
+                                    <?php
+                                        }
                                     }
-                                }
                                 ?>
                             </tbody>
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr_kalijati_bca2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr_kalijati_bca2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -309,7 +305,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -361,7 +357,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -413,7 +409,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -465,7 +461,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -517,7 +513,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -569,7 +565,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -621,7 +617,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -672,7 +668,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -736,15 +732,15 @@ include "koneksi.php";
                                 // else {
                                 //     echo "0";
                                 // }
-                                $cr_kalijati_bca2 = 0;
+                                $cr_kalijati_mandiri2 = 0;
                                 while ($result = mysqli_fetch_assoc($query)) {
-                                    $cr_kalijati_bca = $result['credit'];
-                                    $cr_kalijati_bca2 += $cr_kalijati_bca;
+                                    $cr_kalijati_mandiri = $result['credit'];
+                                    $cr_kalijati_mandiri2 += $cr_kalijati_mandiri;
                                     // echo number_format($cr,0,',','.');
                                 ?>
                                 <tr>
                                     <td><?php echo $result['tanggal_hpt']; ?></td>
-                                    <td><?php echo number_format($cr_kalijati_bca,0,',','.'); ?></td>
+                                    <td><?php echo number_format($cr_kalijati_mandiri,0,',','.'); ?></td>
                                 </tr>
                                 <?php
                                     }
@@ -754,7 +750,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr_kalijati_bca2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr_kalijati_mandiri2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -805,7 +801,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -856,7 +852,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -907,7 +903,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -958,7 +954,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1009,7 +1005,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1060,7 +1056,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1111,7 +1107,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1162,7 +1158,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1244,7 +1240,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr_kalijati_bca2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr_kalijati_bca2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1295,7 +1291,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1346,7 +1342,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1397,7 +1393,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1448,7 +1444,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1499,7 +1495,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1550,7 +1546,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1601,7 +1597,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1652,7 +1648,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1737,7 +1733,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr_kalijati_bca2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr_kalijati_bca2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1788,7 +1784,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1839,7 +1835,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1890,7 +1886,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1941,7 +1937,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -1992,7 +1988,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -2043,7 +2039,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -2094,7 +2090,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -2145,7 +2141,7 @@ include "koneksi.php";
                             <tfoot>
                                 <tr>
                                 <th>Total</th>
-                                <th><?php echo number_format($cr2,0,',','.');?></th>
+                                <th><?php echo number_format(@$cr2,0,',','.');?></th>
                                 </tr>
                             </tfoot>
                             </table>
