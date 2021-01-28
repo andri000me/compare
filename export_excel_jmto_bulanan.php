@@ -37,46 +37,17 @@ $query_cikampek_utama = mysqli_query($koneksi, "SELECT tanggal_hpt,SUM(credit) a
 // loop the data
 $contentStartRow = 6;
 $currentContentRow = 6;
-while($item=mysqli_fetch_array($query)){
+while( ($item=mysqli_fetch_array($query)) && ($item2=mysqli_fetch_array($query_cikampek_utama)) ){
 
     $spreadsheet->getActiveSheet()->insertNewRowBefore($currentContentRow+1,1);
 
     $spreadsheet->getActiveSheet()
         ->setCellValue('A'.$currentContentRow, $item['tanggal_hpt'])
-        ->setCellValue('B'.$currentContentRow, $item['credit_cikampek']);
+        ->setCellValue('B'.$currentContentRow, $item['credit_cikampek'])
+        ->setCellValue('C'.$currentContentRow, $item2['credit_cikampek_utama'])
+        ->setCellValue('D'.$currentContentRow, "=SUM(B$currentContentRow:C$currentContentRow)");
     $currentContentRow++;
 }
-while($item=mysqli_fetch_array($query_cikampek_utama)){
-    // insert a row after current row (before  current row +1)
-    // $spreadsheet->getActiveSheet()->insertNewRowBefore($currentContentRow+1,1);
-
-    // fill/isi the cell with data
-    $spreadsheet->getActiveSheet()
-    
-        ->setCellValue('C'.$contentStartRow, $item['credit_cikampek_utama']);
-        // ->setCellValue('B'.$currentContentRow, $item['credit_cikampek']);
-
-    // increment the current row number
-    $currentContentRow++;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // call class writer untuk save
