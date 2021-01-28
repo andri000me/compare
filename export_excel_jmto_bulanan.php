@@ -48,6 +48,9 @@ while( ($item=mysqli_fetch_array($query)) && ($item2=mysqli_fetch_array($query_c
         ->setCellValue('D'.$currentContentRow, "=SUM(B$currentContentRow:C$currentContentRow)");
     $currentContentRow++;
 }
+$sheet->setCellValue("B{$currentContentRow}", "=SUM(B{$contentStartRow}:B{$currentContentRow})");
+$sheet->setCellValue("C{$currentContentRow}", "=SUM(C{$contentStartRow}:C{$currentContentRow})");
+$sheet->setCellValue("D{$currentContentRow}", "=SUM(D{$contentStartRow}:D{$currentContentRow})");
 
 
 // call class writer untuk save
