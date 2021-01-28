@@ -46,11 +46,35 @@ while( ($item=mysqli_fetch_array($query)) && ($item2=mysqli_fetch_array($query_c
         ->setCellValue('B'.$currentContentRow, $item['credit_cikampek'])
         ->setCellValue('C'.$currentContentRow, $item2['credit_cikampek_utama'])
         ->setCellValue('D'.$currentContentRow, "=SUM(B$currentContentRow:C$currentContentRow)");
+        // tambahkan format number di cell B,C,D
+        $sheet
+            ->getStyle('B'. $currentContentRow)->getNumberFormat()
+            ->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
+        $sheet
+            ->getStyle('C'. $currentContentRow)->getNumberFormat()
+            ->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
+        $sheet
+            ->getStyle('D'. $currentContentRow)->getNumberFormat()
+            ->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
     $currentContentRow++;
 }
-$sheet->setCellValue("B{$currentContentRow}", "=SUM(B{$contentStartRow}:B{$currentContentRow})");
-$sheet->setCellValue("C{$currentContentRow}", "=SUM(C{$contentStartRow}:C{$currentContentRow})");
-$sheet->setCellValue("D{$currentContentRow}", "=SUM(D{$contentStartRow}:D{$currentContentRow})");
+
+/* tambahkan fungsi sum */
+$sheet
+    ->setCellValue("B{$currentContentRow}", "=SUM(B{$contentStartRow}:B{$currentContentRow})")
+    ->getStyle('B'. $currentContentRow)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
+$sheet
+    ->setCellValue("C{$currentContentRow}", "=SUM(C{$contentStartRow}:C{$currentContentRow})")
+    ->getStyle('C'. $currentContentRow)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
+$sheet
+    ->setCellValue("D{$currentContentRow}", "=SUM(D{$contentStartRow}:D{$currentContentRow})")
+    ->getStyle('D'. $currentContentRow)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
+
+/* set kolom auto size */
+$spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+$spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+$spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+$spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
 
 
 // call class writer untuk save
