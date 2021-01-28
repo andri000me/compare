@@ -20,13 +20,16 @@ require "include/header.php";
             <div class="card-body">
             <label>Filter Berdasarkan Bulan</label>
                 <form method="get" action="<?php echo $_SERVER['PHP_SELF'] ?>"> 
-                    <div class="input-group" style="width: 25%">
+                    <!-- <div class="input-group" style="width: 25%">
                         <input type="month" name="bulan" id="" class="form-control" value="<?php if (isset($_GET['bulan'])) echo $_GET['bulan'];?>">
 
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-primary">Filter</button>
                         </div>
-                    </div>
+                    </div> -->
+                    <input type="date" name="awal" id="" value="<?php if (isset($_GET['awal'])) echo $_GET['awal'];?>"> |
+                    <input type="date" name="akhir" id="" value="<?php if (isset($_GET['akhir'])) echo $_GET['akhir'];?>">
+                    <input type="submit" value="Filter">
                 </form>
             
                 </div>
@@ -36,8 +39,8 @@ require "include/header.php";
           <!-- content 2 -->
           <div class="card-mb-3">
               <ul>
-                  <li><a href="export_excel_jmto_bulanan.php?bulan=<?php echo $_GET['bulan']?>" target="_blank"><u>Generate Excel Untuk JMTO</u></a></li>
-                  <li><a href="#"><u>Generate Excel Untuk Semua Bank</u></a></li>
+                  <li><a href="export_excel_jmto_bulanan.php?awal=<?php echo $_GET['awal']?>&akhir=<?php echo $_GET['akhir'] ?>" target="_blank"><u>Generate Excel Untuk JMTO</u></a></li>
+                  <li><a href="export_excel_bank.php?bulan=<?php echo $_GET['bulan']?>" target="_blank"><u>Generate Excel Untuk Semua Bank</u></a></li>
               </ul>
           </div>
           <!-- content 2 -->

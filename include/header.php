@@ -74,10 +74,13 @@ session_start();
         }
          ?>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <!-- <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion"> -->
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-folder-open"></i>
             <span class="nav-link-text">Rekening Koran</span>
           </a>
+          <!-- show untuk class active -->
+          <!-- <ul class="sidenav-second-level collapse show" id="collapseComponents"> -->
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
               <a href="harian.php">Rekening Koran Harian</a>
