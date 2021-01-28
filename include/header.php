@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +45,10 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-
+        <?php
+        if($_SESSION['level'] == "admin")
+        {
+        ?>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
             <i class="fa fa fa-cloud-upload"></i>
@@ -64,7 +70,9 @@
             </li>
           </ul>
         </li>
-
+        <?php 
+        }
+         ?>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-folder-open"></i>

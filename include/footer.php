@@ -1,10 +1,10 @@
 <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <!-- <small>© Ujang Sopiyan 2021 | v.1.1.1</small> -->
-          <style>.heart{color:#e25555;}</style>
+          <small>© Ujang Sopiyan 2021 | v.1.1.1</small>
+          <!-- <style>.heart{color:#e25555;}</style>
           Made with 
-          <span class="heart">❤</span> in Subang | V.1.1.1
+          <span class="heart">❤</span> in Subang | V.1.1.1 -->
 
 
         </div>

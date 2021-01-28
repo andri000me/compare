@@ -51,10 +51,19 @@ session_start();
 
             if($get_data['level'] == 'admin') {
               // buat session loginnya
+              $_SESSION['id'] = $get_data['id'];
+              $_SESSION['nama'] = $get_data['nama'];
               $_SESSION['username'] = $user;
               $_SESSION['password'] = $pass;
-              // $_SESSION['id'] = $id;
-              // redirect ke halaman utama
+              $_SESSION['level'] = "admin";
+              header("location:dashboard.php");
+            }
+            else {
+              $_SESSION['id'] = $get_data['id'];
+              $_SESSION['nama'] = $get_data['nama'];
+              $_SESSION['username'] = $user;
+              $_SESSION['password'] = $pass;
+              $_SESSION['level'] = "user";
               header("location:dashboard.php");
             }
           }
