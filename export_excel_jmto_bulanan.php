@@ -57,7 +57,20 @@ while( ($item=mysqli_fetch_array($query)) && ($item2=mysqli_fetch_array($query_c
             ->getStyle('D'. $currentContentRow)->getNumberFormat()
             ->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
     $currentContentRow++;
+
+    $styleArray = [
+        'borders' => [
+            'allBorders' => [
+                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                'color' => ['argb' => '000000'],
+            ],
+        ],
+    ];
+    
+    $sheet->getStyle('A1:D'.$currentContentRow)->applyFromArray($styleArray);
 }
+
+
 
 /* tambahkan fungsi sum */
 $sheet
@@ -69,9 +82,10 @@ $sheet
 $sheet
     ->setCellValue("D{$currentContentRow}", "=SUM(D{$contentStartRow}:D{$currentContentRow})")
     ->getStyle('D'. $currentContentRow)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
+$sheet->setCellValue("A{$currentContentRow}","Total");
 
 /* set kolom auto size */
-$spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+$spreadsheet->getActiveSheet()->getColumnDimension('A')->setWidth(12);
 $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
 $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
 $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
