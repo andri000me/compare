@@ -32,19 +32,28 @@ if(isset($_FILES['berkas_excel']) && in_array($_FILES['berkas_excel']['type'], $
     $spreadsheet = $reader->load($_FILES['berkas_excel']['tmp_name']);
 
     // sheet bca
-    // echo "<pre>";
-    // print_r( $sheetData = $spreadsheet->getSheetByName('rekap keuangan-etoll bca')->toArray() );
-    $sheetData = $spreadsheet->getSheetByName('rekap keuangan-etoll bca')->toArray();
-    // echo "</pre>";
+    echo "<pre>";
+    print_r( $sheetData = $spreadsheet->getSheetByName('rekap keuangan-etoll bca')->toArray() );
+    // $sheetData = $spreadsheet->getSheetByName('rekap keuangan-etoll bca')->toArray();
+    echo "</pre>";
 
     #echo $sheetData[3][19]; # mengambil nilai kalijati
     #echo $sheetData[2][19]; # mengambil nama gerbang, example: KALIJATI
-    // die();
+    #echo $sheetData[2][15]; # gerbang CIKAMPEK
+    # echo $sheetData[2][17]; # gerbang CIKAMPEK utama
+    # echo $sheetData[2][21]; # gerbang subang
+    # echo $sheetData[2][23]; # gerbang cikedung
+    # echo $sheetData[2][25]; # gerbang kertajati
+    # echo $sheetData[2][27]; # gerbang sumberjaya
+    # echo $sheetData[2][29]; # gerbang palimanan
+    die();
     for($i=3; $i < count($sheetData); $i++)
     {      
         $tanggal = $sheetData[$i][0]. "</br>"; # 1/2/2021
         $nilai = str_replace(",","",$sheetData[$i][19]); # nilai gerbang
         $gerbang = $sheetData[2][19]; # nama gerbang ex: KALIJATI
+        
+        die();
         // die();
         /* // 1240022335500
         $account_no = $sheetData[$i][0];
