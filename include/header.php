@@ -43,13 +43,16 @@ session_start();
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="get">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+
           <a class="nav-link" href="dashboard.php">
 
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
     </form>
-
+    <?php
+    if(isset($_GET['']))
+    ?>
         </li>
         
         <?php

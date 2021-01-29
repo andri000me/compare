@@ -45,15 +45,46 @@ include "koneksi.php";
 					$tanggal = $_GET['tanggal'];
 					// $dt=date('Ym',strtotime($bulan));
 					
-					$sql = mysqli_query($koneksi, " SELECT SUM(credit) as credit FROM bca WHERE keterangan NOT LIKE '%JEMPUTAN%' AND keterangan NOT LIKE '%RTGS%' AND keterangan NOT LIKE '%LAINNYA%' AND tanggal_hpt = '$tanggal' GROUP BY tanggal_hpt ");
-                    $result = mysqli_fetch_assoc($sql);
+                    $sql = mysqli_query($koneksi, " SELECT SUM(credit) as credit FROM bca WHERE keterangan NOT LIKE '%JEMPUTAN%' AND keterangan NOT LIKE '%RTGS%' AND keterangan NOT LIKE '%LAINNYA%' AND tanggal_hpt = '$tanggal' GROUP BY tanggal_hpt ");
+                    // echo "<pre>";
+                    // print_r($get=mysqli_fetch_array($sql));
+                    // echo "</pre>";
+                    // die();
+                    $cr_bca =0;
+                    $hitung_data = mysqli_num_rows($sql);
+                    if($hitung_data > 0) {
+                        $get=mysqli_fetch_array($sql);
+                        $cr_bca = $get['credit'];
+                        if(count($get) > 0)
+                        {
+                            // $result = mysqli_fetch_assoc($sql);
+                    
+                            // $cr_bca = $get['credit'];
+                            // echo number_format($cr,0,',','.');
+                            echo "
+                            <h6 class='card-title mb-1'>
+                            BANK BCA : ".number_format($cr_bca,0,',','.')."
+                            </h6>
+                            ";
+                        }
+                    }
+                    else {
+                        echo "
+                            <h6 class='card-title mb-1'>
+                            BANK BCA : 0
+                            </h6>
+                            ";
+                    }
+
+                    /* $result = mysqli_fetch_assoc($sql);
+                    
                     $cr_bca = $result['credit'];
                     // echo number_format($cr,0,',','.');
                     echo "
                     <h6 class='card-title mb-1'>
                     BANK BCA : ".number_format($cr_bca,0,',','.')."
                     </h6>
-                    ";
+                    "; */
 					
                 }
                 else {
