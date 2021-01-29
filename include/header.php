@@ -57,11 +57,21 @@ session_start();
 
           </ul>
         </li>
-        
+
         <?php
         if($_SESSION['level'] == "admin")
         {
         ?>
+
+        <!-- upload matrik -->
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="upload_matrik.php">
+            <i class="fa fa fa-cloud-upload"></i>
+            <span class="nav-link-text">Upload Matriks</span>
+          </a>
+        </li>
+        
+        
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
             <i class="fa fa fa-cloud-upload"></i>
@@ -86,6 +96,8 @@ session_start();
         <?php 
         }
          ?>
+        
+
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <!-- <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion"> -->
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">

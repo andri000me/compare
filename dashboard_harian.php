@@ -72,7 +72,7 @@ include "koneksi.php";
                     $tanggal = $_GET['tanggal'];
 
                     $query = mysqli_query($koneksi, "SELECT SUM(credit) as credit FROM bca WHERE keterangan NOT LIKE '%JEMPUTAN%' AND keterangan NOT LIKE '%RTGS%' AND keterangan NOT LIKE '%LAINNYA%' AND tanggal_hpt = '$tanggal' GROUP BY tanggal_hpt ");
-                    
+                    $cr_bca = 0;
                     $hitung_data = mysqli_num_rows($query);
                     if($hitung_data > 0) {
                         $get_data = mysqli_fetch_assoc($query);
