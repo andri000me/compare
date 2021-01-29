@@ -13,6 +13,32 @@ require "include/header.php";
       </ol>
 
       <div class="row">
+        <div class="col-12">
+          <!-- <h1>Blank</h1>
+          <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p> -->
+          <div class="card mb-3">
+
+              <!-- form filter berdasarkan tahun -->
+              <div class="card-body">
+              
+                  <form method="get" action="/compare/harian.php" onsubmit="return validasi_input(this)"> 
+                      <div class="input-group" style="width: 30%">
+                          <input type="date" name="tanggal" id="" class="form-control" value="">
+
+                          <div class="input-group-btn">
+                              <button type="submit" class="btn btn-primary">Ubah Tanggal</button>
+                          </div>
+                      </div>
+                  </form>
+              
+              </div>
+              
+              
+          </div>
+
+          
+        
+        </div>
         <!-- matriks -->
         <div class="col-lg-4">
             <div class="card mb-3">
@@ -67,7 +93,9 @@ require "include/header.php";
 
         </div>
 
-    </div>
+        </div>
+        
+        </div>
   </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

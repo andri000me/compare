@@ -40,19 +40,22 @@ session_start();
     
     <div class="collapse navbar-collapse" id="navbarResponsive">
 
-    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="get">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-
-          <a class="nav-link" href="dashboard.php">
-
+        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseDaily" data-parent="#exampleAccordion" aria-expanded="false">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
-    </form>
-    <?php
-    if(isset($_GET['']))
-    ?>
+          <ul class="sidenav-second-level collapse" id="collapseDaily">
+            <li>
+              <a href="dashboard_harian.php">Dashboard Harian</a>
+            </li>
+            <li>
+              <a href="#">Dashboard Bulanan</a>
+            </li>
+
+          </ul>
         </li>
         
         <?php

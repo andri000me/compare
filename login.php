@@ -56,7 +56,10 @@ session_start();
               $_SESSION['username'] = $user;
               $_SESSION['password'] = $pass;
               $_SESSION['level'] = "admin";
-              header("location:dashboard.php");
+              
+              // header("location:dashboard.php");
+              header("location:dashboard_harian.php");
+              // header('Location: dashboard.php?tanggal='.date('Y-m-d') );
             }
             else {
               $_SESSION['id'] = $get_data['id'];
@@ -64,7 +67,8 @@ session_start();
               $_SESSION['username'] = $user;
               $_SESSION['password'] = $pass;
               $_SESSION['level'] = "user";
-              header("location:dashboard.php");
+              // header('Location: dashboard.php?tanggal='.date('Y-m-d') );
+              header("location:dashboard_harian.php");
             }
           }
         }
