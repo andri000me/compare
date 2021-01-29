@@ -46,10 +46,7 @@ include "koneksi.php";
 					// $dt=date('Ym',strtotime($bulan));
 					
                     $sql = mysqli_query($koneksi, " SELECT SUM(credit) as credit FROM bca WHERE keterangan NOT LIKE '%JEMPUTAN%' AND keterangan NOT LIKE '%RTGS%' AND keterangan NOT LIKE '%LAINNYA%' AND tanggal_hpt = '$tanggal' GROUP BY tanggal_hpt ");
-                    // echo "<pre>";
-                    // print_r($get=mysqli_fetch_array($sql));
-                    // echo "</pre>";
-                    // die();
+                    
                     $cr_bca =0;
                     $hitung_data = mysqli_num_rows($sql);
                     if($hitung_data > 0) {
@@ -103,15 +100,28 @@ include "koneksi.php";
 					$tanggal = $_GET['tanggal'];
 					// $dt=date('Ym',strtotime($bulan));
 					
-					$sql = mysqli_query($koneksi, " SELECT tanggal_hpt, SUM(credit) as credit FROM mandiri WHERE tanggal_hpt = '$tanggal' GROUP BY tanggal_hpt ");
-                    $result = mysqli_fetch_assoc($sql);
-                    $cr_mandiri = $result['credit'];
-                    // echo number_format($cr,0,',','.');
-                    echo "
-                    <h6 class='card-title mb-1'>
-                    BANK MANDIRI : ".number_format($cr_mandiri,0,',','.')."
-                    </h6>
-                    ";
+                    $sql = mysqli_query($koneksi, " SELECT tanggal_hpt, SUM(credit) as credit FROM mandiri WHERE tanggal_hpt = '$tanggal' GROUP BY tanggal_hpt ");
+                    $cr_mandiri  = 0;
+                    $hitung_data = mysqli_num_rows($sql);
+                    if($hitung_data > 0) {
+                        $result = mysqli_fetch_assoc($sql);
+                        $cr_mandiri = $result['credit'];
+                        if(count($result) > 0) {
+                            echo "
+                            <h6 class='card-title mb-1'>
+                            BANK MANDIRI : ".number_format($result['credit'],0,',','.')."
+                            </h6>
+                            ";
+                        }
+                    }
+                    else {
+                        echo "
+                        <h6 class='card-title mb-1'>
+                        BANK MANDIRI : 0
+                        </h6>
+                        ";
+                    }
+                    
 					
                 }
                 else {
@@ -131,14 +141,27 @@ include "koneksi.php";
 					// $dt=date('Ym',strtotime($bulan));
 					
 					$sql = mysqli_query($koneksi, " SELECT tanggal_hpt, SUM(credit) as credit FROM bri WHERE tanggal_hpt = '$tanggal' GROUP BY tanggal_hpt ");
-                    $result = mysqli_fetch_assoc($sql);
-                    $cr_bri = $result['credit'];
-                    // echo number_format($cr,0,',','.');
-                    echo "
-                    <h6 class='card-title mb-1'>
-                    BANK BRI : ".number_format($cr_bri,0,',','.')."
-                    </h6>
-                    ";
+                    
+                    $cr_bri = 0;
+                    $hitung_data = mysqli_num_rows($sql);
+                    if($hitung_data > 0) {
+                        $result = mysqli_fetch_assoc($sql);
+                        $cr_bri = $result['credit'];
+                        if(count($result) > 0) {
+                            echo "
+                            <h6 class='card-title mb-1'>
+                            BANK BRI : ".number_format($result['credit'],0,',','.')."
+                            </h6>
+                            ";
+                        }
+                    }
+                    else {
+                        echo "
+                        <h6 class='card-title mb-1'>
+                        BANK BRI : 0
+                        </h6>
+                        ";
+                    }
 					
                 }
                 else {
@@ -157,15 +180,28 @@ include "koneksi.php";
 					$tanggal = $_GET['tanggal'];
 					// $dt=date('Ym',strtotime($bulan));
 					
-					$sql = mysqli_query($koneksi, " SELECT tanggal_hpt, SUM(credit) as credit FROM bni WHERE tanggal_hpt = '$tanggal' GROUP BY tanggal_hpt ");
-                    $result = mysqli_fetch_assoc($sql);
-                    $cr_bni = $result['credit'];
-                    // echo number_format($cr,0,',','.');
-                    echo "
-                    <h6 class='card-title mb-1'>
-                    BANK BNI : ".number_format($cr_bni,0,',','.')."
-                    </h6>
-                    ";
+                    $sql = mysqli_query($koneksi, " SELECT tanggal_hpt, SUM(credit) as credit FROM bni WHERE tanggal_hpt = '$tanggal' GROUP BY tanggal_hpt ");
+                    
+                    $cr_bni = 0;
+                    $hitung_data = mysqli_num_rows($sql);
+                    if($hitung_data > 0) {
+                        $result = mysqli_fetch_assoc($sql);
+                        $cr_bni = $result['credit'];
+                        if(count($result) > 0) {
+                            echo "
+                            <h6 class='card-title mb-1'>
+                            BANK BNI : ".number_format($result['credit'],0,',','.')."
+                            </h6>
+                            ";
+                        }
+                    }
+                    else {
+                        echo "
+                        <h6 class='card-title mb-1'>
+                        BANK BNI : 0
+                        </h6>
+                        ";
+                    }
 					
                 }
                 else {
